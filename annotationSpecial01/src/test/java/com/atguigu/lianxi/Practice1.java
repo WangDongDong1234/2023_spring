@@ -8,7 +8,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class Chapter2 {
+public class Practice1 {
 
     @Test
     public void test_1(){
@@ -32,6 +32,15 @@ public class Chapter2 {
         // 根据类型获得bean在容器中的名字
         String[] namesForType = applicationContext.getBeanNamesForType(Person.class);
         for (String name : namesForType) {
+            System.out.println(name);
+        }
+    }
+
+    @Test
+    public void test_3(){
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(MainConfig.class);
+        String[] names = applicationContext.getBeanDefinitionNames();
+        for(String name:names){
             System.out.println(name);
         }
     }
