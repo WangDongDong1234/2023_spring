@@ -1,6 +1,7 @@
 package com.atguigu.config;
 
 import com.atguigu.bean.Person;
+import com.atguigu.filter.MyTypeFilter;
 import org.springframework.context.annotation.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
@@ -9,7 +10,7 @@ import org.springframework.stereotype.Service;
 @Configuration  //告诉Spring这是一个配置类
 @ComponentScans(value = {
         @ComponentScan(value = "com.atguigu",includeFilters ={
-                @ComponentScan.Filter(type = FilterType.ANNOTATION,classes = {Controller.class, Service.class})
+                @ComponentScan.Filter(type = FilterType.CUSTOM,classes = {MyTypeFilter.class})
         },useDefaultFilters = false)
 })
 public class MainConfig {
